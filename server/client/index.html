@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <style>
+          .title {
+            border-top: 1px solid black;
+            padding-top: 10px;
+          }
+
+          .comment {
+            padding: 16px;
+            border: 1px solid red;
+            margin: 5px 0px;
+          }
+
+          .comment .message {
+            width: 100%;
+            display: inline-block;
+            padding-bottom: 15px;
+          }
+
+          .comment .email {
+            width: 20%;
+            display: inline-block;
+            text-align: left;
+          }
+
+          .comment .date {
+            width: 80%;
+            display: inline-block;
+            text-align: right;
+          }
+        </style>
+    </head>
+    <body>
+      <form name="form" action="javascript: submit(form)">
+        <textarea name="comment" rows="8" cols="80"></textarea>
+        <br />
+        <button type="submit" name="button">Submit</button>
+      </form>
+
+      <h2 class="title">Comments</h2>
+
+      <div id="comments">
+
+      </div>
+
+      <script src="index.js"> </script>
+    </body>
+</html>
