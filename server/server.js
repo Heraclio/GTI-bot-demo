@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const http = require('http');
-const database = require('../database/database').start('server');
+const database = require('../database/database').start('database/server');
 const bodyParser = require('body-parser');
 const app = express();
 const server = http.createServer(app);
@@ -28,10 +28,6 @@ class Server {
     });
 
     app.post('/api/comment', (req, res) => {
-      const author = req.body.author;
-      const email = req.body.email;
-      const date = req.body.date;
-
       database.push('/comments[]', req.body, true);
 
       res.send({
@@ -39,9 +35,33 @@ class Server {
       });
     });
 
-    app.get('/api/comment', (req, res) => {
+    app.post('/api/database/delete', (req, res) => {
+      let comments;
+
+      database.delete('/comments');
+
+      try {
+        comments = database.getData('/comments');
+      } catch (e) {
+        comments = [];
+      }
+
       res.send({
-        comments: database.getData('/comments')
+        comments: comments
+      });
+    });
+
+    app.get('/api/comment', (req, res) => {
+      let comments;
+
+      try {
+        comments = database.getData('/comments');
+      } catch (e) {
+        comments = [];
+      }
+
+      res.send({
+        comments: comments
       });
     });
 

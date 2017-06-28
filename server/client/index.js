@@ -1,5 +1,6 @@
 (function() {
   window.submit = submit;
+  window.deleteRecords = deleteRecords;
 
   function submit(form) {
     if(form.comment.value.trim()) {
@@ -9,6 +10,10 @@
 
   function render(response) {
     var data = JSON.parse(response.target.response);
+
+    var comments = document.getElementById('comments');
+
+    comments.innerHTML = '';
 
     data.comments.map(function(comment) {
       append(comment);
@@ -37,7 +42,7 @@
       container.append(date);
       container.append(br);
 
-      document.getElementById('comments').append(container);
+      comments.append(container);
     }
   }
 
@@ -62,6 +67,17 @@
   function get() {
     var http = new XMLHttpRequest();
         http.open("GET", 'http://127.0.0.1:3000/api/comment');
+        http.onreadystatechange = function(response) {
+          if(http.readyState == 4 && http.status == 200) {
+            render(response);
+          }
+        }
+        http.send();
+  }
+
+  function deleteRecords() {
+    var http = new XMLHttpRequest();
+        http.open("POST", 'http://127.0.0.1:3000/api/database/delete');
         http.onreadystatechange = function(response) {
           if(http.readyState == 4 && http.status == 200) {
             render(response);

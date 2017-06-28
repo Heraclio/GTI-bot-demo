@@ -39,14 +39,24 @@
             display: inline-block;
             text-align: right;
           }
+
+          .form {
+            display: inline-block;
+          }
+
+          .delete {
+            display: inline-block;
+          }
         </style>
     </head>
     <body>
-      <form name="form" action="javascript: submit(form)">
+      <form  class="form" name="form" action="javascript: submit(form)">
         <textarea name="comment" rows="8" cols="80"></textarea>
         <br />
-        <button type="submit" name="button">Submit</button>
+        <button type="submit" name="submit">Submit</button>
       </form>
+
+      <button class="delete" type="button" onclick="javascript: deleteRecords()">Delete Comments</button>
 
       <h2 class="title">Comments</h2>
 
