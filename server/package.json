@@ -4,15 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "node server/server",
-    "spider": "node spider/spider"
+    "server": "node server.js"
   },
   "author": "Heraclio",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "cheerio": "^1.0.0-rc.1",
-    "express": "^4.15.3",
-    "node-json-db": "^0.7.3"
+    "express": "^4.15.3"
   }
 }
