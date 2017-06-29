@@ -2,15 +2,15 @@
   "name": "secured-server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "server": "node server.js"
   },
-  "author": "",
+  "author": "Heraclio",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
     "node-json-db": "^0.7.3",
     "express": "^4.15.3"
-  },
-  "license": "ISC"
+  }
 }

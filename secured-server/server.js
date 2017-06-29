@@ -5,14 +5,14 @@ const http = require('http');
 
 const bodyParser = require('body-parser');
 
-const database = require('database/database').start('database/server');
+const database = require('./database/database').start('database/server');
 
 const app = express();
 const server = http.createServer(app);
 
 class Server {
   constructor() {
-    this.port = 3000;
+    this.port = 3030;
     this.host = 'localhost';
 
     this.start = this.start.bind(this);
@@ -26,10 +26,6 @@ class Server {
       res.header('Access-Control-Allow-Origin', '*');
       res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
       next();
-    });
-
-    app.get('*', (req, res) => {
-      res.redirect(path.join(__dirname, '/client/index.html'));
     });
 
     app.get('/', (req, res) => {
@@ -75,6 +71,10 @@ class Server {
     });
 
     app.use(express.static(path.join(__dirname, 'client')));
+
+    app.get('*', (req, res) => {
+      res.redirect(path.join(__dirname, '/client/index.html'));
+    });
 
     server.listen(this.port, this.host);
     server.on('listening', () => {
