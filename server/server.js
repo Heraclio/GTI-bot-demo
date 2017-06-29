@@ -33,7 +33,7 @@ class Server {
     });
 
     app.post('/api/comment', (req, res) => {
-      database.push('/comments[]', req.body, true);
+      database.push('/comments[]', req.body);
 
       res.send({
         comments: database.getData('/comments')

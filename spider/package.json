@@ -5,8 +5,9 @@
   "main": "spider.js",
   "dependencies": {
     "cheerio": "^1.0.0-rc.1",
-    "request": "^2.81.0",
-    "node-json-db": "^0.7.3"
+    "node-json-db": "^0.7.3",
+    "phantom": "^4.0.4",
+    "request": "^2.81.0"
   },
   "devDependencies": {},
   "scripts": {

@@ -37,12 +37,13 @@
       var container = document.createElement('div');
 
       container.setAttribute('class', 'comment');
-      container.append(comment);
-      container.append(author);
-      container.append(date);
-      container.append(br);
 
-      comments.append(container);
+      container.appendChild(comment);
+      container.appendChild(author);
+      container.appendChild(date);
+      container.appendChild(br);
+
+      comments.appendChild(container);
     }
   }
 
