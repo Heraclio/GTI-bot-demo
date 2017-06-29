@@ -3,8 +3,6 @@
   window.deleteRecords = deleteRecords;
 
   function submit(form) {
-    console.log(form.comment);
-
     if(form.comment.value.trim()) {
       post(form.comment.value);
     }
@@ -56,7 +54,7 @@
     };
 
     var http = new XMLHttpRequest();
-        http.open("POST", 'http://127.0.0.1:3000/api/comment');
+        http.open("POST", 'http://127.0.0.1:3030/api/comment');
         http.setRequestHeader('Content-type','application/json; charset=utf-8');
         http.onreadystatechange = function(response) {
         	if(http.readyState == 4 && http.status == 200) {
@@ -68,7 +66,7 @@
 
   function get() {
     var http = new XMLHttpRequest();
-        http.open("GET", 'http://127.0.0.1:3000/api/comment');
+        http.open("GET", 'http://127.0.0.1:3030/api/comment');
         http.onreadystatechange = function(response) {
           if(http.readyState == 4 && http.status == 200) {
             render(response);
@@ -79,7 +77,7 @@
 
   function deleteRecords() {
     var http = new XMLHttpRequest();
-        http.open("POST", 'http://127.0.0.1:3000/api/database/delete');
+        http.open("POST", 'http://127.0.0.1:3030/api/database/delete');
         http.onreadystatechange = function(response) {
           if(http.readyState == 4 && http.status == 200) {
             render(response);
