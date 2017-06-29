@@ -5,7 +5,7 @@ const http = require('http');
 
 const bodyParser = require('body-parser');
 
-const database = require('../database/database').start('database/server');
+const database = require('database/database').start('database/server');
 
 const app = express();
 const server = http.createServer(app);
