@@ -3,6 +3,8 @@
   window.deleteRecords = deleteRecords;
 
   function submit(form) {
+    console.log(form.comment);
+
     if(form.comment.value.trim()) {
       post(form.comment.value);
     }

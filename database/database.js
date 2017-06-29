@@ -6,7 +6,7 @@ class Database {
   }
 
   start(name) {
-    return new JsonDB(name, true, false);
+    return new JsonDB(name, true, true);
   }
 }
 

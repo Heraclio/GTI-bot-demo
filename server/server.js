@@ -1,8 +1,12 @@
 const express = require('express');
+
 const path = require('path');
 const http = require('http');
-const database = require('../database/database').start('database/server');
+
 const bodyParser = require('body-parser');
+
+const database = require('../database/database').start('database/server');
+
 const app = express();
 const server = http.createServer(app);
 
@@ -10,6 +14,7 @@ class Server {
   constructor() {
     this.port = 3000;
     this.host = 'localhost';
+
     this.start = this.start.bind(this);
   }
 
@@ -23,8 +28,12 @@ class Server {
       next();
     });
 
+    app.get('*', (req, res) => {
+      res.redirect(path.join(__dirname, '/client/index.html'));
+    });
+
     app.get('/', (req, res) => {
-      res.sendFile(path.join(__dirname + '/client/index.html'));
+      res.sendFile(path.join(__dirname, '/client/index.html'));
     });
 
     app.post('/api/comment', (req, res) => {
